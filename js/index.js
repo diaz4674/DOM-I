@@ -35,28 +35,85 @@ const siteContent = {
   "footer": {
     "copyright" : "Copyright Great Idea! 2018"
   },
-};
+ };
+ 
+ // Example: Update the img src for the logo
+ let logo = document.getElementById("logo-img");
+ logo.setAttribute('src', siteContent["nav"]["img-src"])
+ 
+ //Navigation Section
+ let navA = document.getElementsByTagName('a');
+  navA[0].textContent = siteContent["nav"]['nav-item-1'];
+  navA[1].textContent = siteContent["nav"]['nav-item-2'];
+  navA[2].textContent = siteContent["nav"]['nav-item-3'];
+  navA[3].textContent = siteContent["nav"]['nav-item-4'];
+  navA[4].textContent = siteContent["nav"]['nav-item-5'];
+  navA[5].textContent = siteContent["nav"]['nav-item-6'];
+ 
+  let nav = document.querySelector("nav")
+ 
+  //Two new Nav's
+  let newNav1 = document.createElement('a');
+  newNav1.appendChild(document.createTextNode('Support'));
+  nav.appendChild(newNav1);
+ 
+  let newNav2 = document.createElement('a');
+  newNav2.append('Home');
+  nav.prepend(newNav2)
+ 
+  //Green Anchor Text Color
+ for(let i = 0; i < navA.length; i++){
+   navA[i].style.color = 'green';
+ }
 
-// Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+ //Sections 'Array'
+ let sections = document.querySelectorAll('section')
+ 
+ //Head Section
 
-let nav = document.getElementsByTagName('a');
-  nav[0].textContent = siteContent["nav"]['nav-item-1'];
-  nav[1].textContent = siteContent["nav"]['nav-item-2'];
-  nav[0].textContent = siteContent["nav"]['nav-item-1'];
-  nav[0].textContent = siteContent["nav"]['nav-item-1'];
-  nav[0].textContent = siteContent["nav"]['nav-item-1'];
+ let ctaHeader = sections[0].querySelector('h1').innerHTML = siteContent['cta']['h1'].split(' ').join(`<br>`);
+ let ctaButton = sections[0].querySelector('button').textContent = siteContent['cta']['button'];
+ let ctaImg = document.getElementById('cta-img').setAttribute('src', siteContent['cta']['img-src']);
+ 
+ //Main Content Section
+ let mainContent = sections[1];
+ let mainDivs = mainContent.querySelectorAll('div');
+ 
+ let topContent = mainDivs[0];
+ let topTextContent = topContent.querySelectorAll('div')
+ 
+ //Top Section
+ let featuresHeader = topTextContent[0].querySelector('h4') .textContent = siteContent['main-content']['features-h4'];;
+ let featuresContent = topTextContent[0].querySelector('p').textContent = siteContent['main-content']['features-content'];
+ 
+ let aboutHeader = topTextContent[1].querySelector('h4').textContent = siteContent['main-content']['about-h4'];;
+ let aboutContent = topTextContent[1].querySelector('p').textContent = siteContent['main-content']['about-content'];
+ 
+ //Middle Image
+ let middleImg = document.getElementById('middle-img').setAttribute('src', siteContent['main-content']['middle-img-src']);;
 
-let title = document.querySelector('h1');
-title.textContent= siteContent["cta"]['h1'];
+ //Bottom Section
+ let servicesHeader = mainDivs[4].querySelector('h4').textContent = siteContent['main-content']['services-h4'];;
+ let servicesContent = mainDivs[4].querySelector('p').textContent = siteContent['main-content']['services-content'];
 
-let button = document.querySelector('button');
-button.textContent = siteContent["cta"]["button"];
+ 
+ let productHeader = mainDivs[5].querySelector('h4').textContent = siteContent['main-content']['product-h4'] ;
+ let productContent = mainDivs[5].querySelector('p').textContent = siteContent['main-content']['product-content'] ;
+ 
+ let visionHeader = mainDivs[6].querySelector('h4').textContent = siteContent['main-content']['vision-h4'];;
+ let visionContent = mainDivs[6].querySelector('p').textContent = siteContent['main-content']['vision-content'];
+ 
+ //Contact Section
+ let contactHeader = sections[2].querySelector('h4').textContent = siteContent['contact']['contact-h4'];
+ let contactContent = sections[2].querySelectorAll('p');
+ let address = contactContent[0].innerHTML = siteContent['contact']['address'].split('Street ').join(`Street <br>`);
+ let phone = contactContent[1].textContent = siteContent['contact']['phone'];
+ let email = contactContent[2].textContent = siteContent['contact']['email'];
 
-let cta = document.getElementById ('cta-img');
-cta.setAttribute('src', siteContent["cta"]["img-src"]);
+ //Footer Section
+ let footer = document.querySelector('footer').querySelector('p').textContent = siteContent['footer']['copyright']
 
-let mainContent = document.getElementsByClassName('main-content');
+//Stretch Goal
 
-let featured = mainContent.querySelector
+ navA[0].style.cursor = "pointer";
+ navA[7].style.cursor = "pointer";
